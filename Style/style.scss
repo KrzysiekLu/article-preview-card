@@ -1,0 +1,201 @@
+:root {
+  --primary-text-color: hsl(217, 19%, 35%);
+  --speech-bubble-color: hsl(217, 19%, 35%);
+  --secondary-text-color: hsl(214, 17%, 51%);
+  --button-bg-hover-color: hsl(214, 17%, 51%);
+  --button-bg-color: hsl(210, 46%, 95%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap");
+
+body {
+  height: 100vh;
+
+  font-family: "Manrope", sans-serif;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.component {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  box-shadow: 0px 10px 20px -2px rgba(47, 57, 68, 0.546);
+
+  &_img {
+    height: 230px;
+    background-image: url(../images/drawers.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0% 25%;
+    border-radius: 10px 10px 0px 0px;
+  }
+  &_content {
+    padding: 2rem 2.1rem 0 2.1rem;
+    background-color: var(--main-bg-color);
+    border-radius: 0px 0px 10px 10px;
+
+    &_title {
+      color: var(--primary-text-color);
+      margin: 0.8rem 0;
+      font-weight: 700;
+    }
+    &_paragraph {
+      color: var(--secondary-text-color);
+      line-height: 1.3rem;
+      text-align: start;
+      font-size: 15px;
+      letter-spacing: 0.3px;
+      margin-bottom: 1.4rem;
+      font-weight: 500;
+    }
+    &_autor {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      margin-bottom: 1.2rem;
+      &_avatar {
+        height: 50px;
+        border-radius: 100%;
+      }
+      &_info {
+        margin-left: 1rem;
+        &_name {
+          color: var(--primary-text-color);
+          font-weight: 700;
+        }
+        &_publication-date {
+          color: var(--secondary-text-color);
+        }
+      }
+      &_share-button {
+        height: 40px;
+        min-width: 40px;
+        background-color: var(--button-bg-color);
+        border-radius: 100%;
+        margin-left: auto;
+        border: none;
+      }
+    }
+  }
+}
+
+.popup-message {
+  background-color: var(--primary-text-color);
+  width: 100%;
+  padding: 1.2rem 2.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: 0 0 10px 10px;
+  &-text {
+    color: var(--secondary-text-color);
+    letter-spacing: 0.4rem;
+    margin-right: 1.5rem;
+  }
+  &_icon {
+    margin-right: 1.2rem;
+  }
+  .share-button {
+    border: none;
+    height: 35px;
+    min-width: 35px;
+    background-color: var(--button-bg-hover-color);
+    border-radius: 100%;
+    margin-left: auto;
+    &-img {
+      color: transparent;
+      background-color: var(--button-bg-color);
+      mask-size: contain;
+      mask-position: 50% -1px;
+      mask-repeat: no-repeat;
+      mask-image: url(../images/icon-share.svg);
+    }
+  }
+}
+.hide {
+  display: none;
+}
+
+@media (min-width: 450px) {
+  .component {
+    max-width: 375px;
+    margin: 0 auto;
+  }
+}
+@media (min-width: 740px) {
+  .component {
+    position: relative;
+    max-width: 760px;
+    flex-direction: row;
+    margin: 0 auto;
+
+    &_img {
+      min-height: 320px;
+      width: 1100px;
+      background-image: url(../images/drawers.jpg);
+      border-radius: 10px 0 0 10px;
+    }
+    &_content {
+      border-radius: 0 10px 10px 0;
+    }
+
+    .popup-message {
+      background-color: var(--primary-text-color);
+      align-items: center;
+      position: absolute;
+      padding: 1rem 2rem;
+      width: auto;
+      top: 50%;
+      right: -70px;
+      display: none;
+      border-radius: 0.5rem;
+      box-shadow: 0px 10px 20px -2px rgba(47, 57, 68, 0.546);
+
+      &-text {
+        margin-right: 1rem;
+      }
+      &_icon:nth-child(4) {
+        margin-right: 0px;
+      }
+
+      .share-button {
+        display: none;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+
+        top: 50px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        width: 0px;
+        height: 0px;
+        border-top: 15px solid var(--speech-bubble-color);
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+        filter: drop-shadow(0px 10px 10px #2f3944ca);
+      }
+    }
+  }
+  .hide {
+    display: none;
+  }
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  margin-top: 20px;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
